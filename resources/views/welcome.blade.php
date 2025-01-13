@@ -274,7 +274,7 @@
                             <i class="fas fa-caret-down dropdown-icon"></i>
                         </a>
                         <div class="submenu">
-                            <a href="#" onclick="navigateTo('bookaVisit.php')">Book a Visit</a>
+                            <a href="{{ route('visits') }}" onclick="navigateTo('bookaVisit.php')">Book a Visit</a>
                             <a href="#" onclick="navigateTo('visits.php')">Visitor Info</a>
                         </div>
                     </div>

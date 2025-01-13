@@ -1,0 +1,702 @@
+
+:root {
+    --primary-color: #ff8802;
+    --secondary-color: #c46800;
+}
+
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+}
+
+/* Layout */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.dashboard-content {
+    padding: 10px;
+    background-color: #e2e1e1;
+}
+/* .dashboard-contents{
+
+} */
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: #464646;
+    color: white;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.logo-container {
+    background-color: #ff8802;
+    text-align: center;
+}
+
+.logo {
+    max-width: 180px;
+}
+
+/* Navigation Styles */
+.nav-item {
+    border-bottom: 1px solid #2E2E2E;
+    cursor: pointer;
+}
+
+.nav-link {
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.nav-link i {
+    width: 20px;
+}
+
+.nav-link:hover {
+    background-color: #555;
+}
+
+.submenu {
+    background-color: #088395;
+    display: none;
+    padding: 10px 0;
+}
+
+.submenu a {
+    color: white;
+    padding: 8px 30px;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.submenu a:hover {
+    background-color: #066673;
+}
+
+.nav-item.active .submenu {
+    display: block;
+}
+
+.dropdown-icon {
+    margin-left: auto;
+}
+
+/* Main Content Area */
+.main-content {
+    margin-left: 250px;
+    flex: 1;
+    background-color: #f4f5f3;
+}
+
+/* Top Header */
+.top-header {
+    background-color: #e0e1e0;
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header_username {
+    color: black;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+/* Statistics Layout */
+.stats-row {
+    display: flex;
+    gap: 10px;
+
+}
+
+.table-container {
+    flex: 1.5;
+}
+
+.metrics-container {
+    flex: 1;
+}
+
+
+/* Cards Styling */
+.stats-card {
+    background: white;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Table Styles */
+.stats-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.stats-table th {
+    background-color: #464646;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.stats-table th:first-child {
+    border-top-left-radius: 4px;
+}
+
+.stats-table th:last-child {
+    border-top-right-radius: 4px;
+}
+
+.stats-table td {
+    padding: 12px 20px;
+    text-align: center;
+}
+
+/* Seat Status Indicators */
+.available-seats {
+    background-color: #e8f5e9;
+    padding: 8px 15px;
+    border-radius: 8px;
+    color: #2e7d32;
+    display: inline-block;
+    min-width: 60px;
+    border: 1px solid #c8e6c9;
+}
+
+.occupied-seats {
+    background-color: #ffebee;
+    padding: 8px 15px;
+    border-radius: 8px;
+    color: #c62828;
+    display: inline-block;
+    min-width: 60px;
+    border: 1px solid #ffcdd2;
+}
+
+/* Metrics Typography */
+.metric-value {
+    font-size: 30px;
+    color: #333;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.metric-label {
+    font-size: 20px;
+    color: #333;
+    margin: 20px 0 10px 0;
+    font-weight: 500;
+}
+
+/* Calendar Card */
+.calendar-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* add coworker */
+/* General Container Styles */
+.container, .form_container {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+}
+
+/* Form Elements */
+.form-control,
+select,
+input,
+textarea,
+button {
+    width: 100%;
+    padding: 10px;
+   
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.form-control:focus,
+select:focus,
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button Styles */
+button {
+    font-weight: 600;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Hidden Elements */
+.hidden {
+    display: none;
+}
+
+/* Additional Styles */
+.form-section {
+    margin-bottom: 20px;
+}
+
+.link-button {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white;
+    background-color: #ff8802;
+    border-radius: 4px;
+}
+
+.link-button:hover {
+    background-color: #0056b3;
+}
+
+/* for table display */
+
+/* Table Styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+.table th, .table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Pagination (if needed in the future) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: #007bff;
+    padding: 8px 16px;
+    margin: 0 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.pagination a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination a.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+.controls {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.controls label {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.branch-block {
+    margin: 20px auto;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+}
+
+.branch-title {
+    font-size: 1.5em;
+    color: #4a90e2;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.seating-chart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.seat {
+    width: 70px;
+    height: 70px;
+    margin: 5px;
+    border: 2px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.seat:hover {
+    transform: scale(1.05);
+    border-color: #4a90e2;
+}
+
+.available {
+    background-color: #28a745;
+    /* Green */
+    color: white;
+}
+
+.occupied {
+    background-color: #dc3545;
+    /* Red */
+    color: white;
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1000;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #ffffff;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    /* Could be more or less depending on screen size */
+    max-width: 600px;
+    /* Maximum width */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Close Button */
+.close {
+    color: #333;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal Header */
+.modal-content h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* Modal Body */
+.modal-content p {
+    margin: 15px 0;
+    color: #555;
+}
+
+.modal-content label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.modal-content select,
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.modal-content button {
+    background-color: #007bff;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3;
+}
+
+.modal-content .btn-danger {
+    background-color: #dc3545;
+}
+
+.modal-content .btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        margin: 10% auto;
+    }
+}
+
+.form-container {
+    width: 100%;
+    max-width: 600px;
+    padding-left: 300px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.form-container label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Add this to your CSS file */
+.seat {
+    position: relative;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 5px;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: white;
+}
+#fetchSeats{
+font-size: 16px;
+}
+
+
+
+/* Modal styles */
+.modal {
+display: none;
+position: fixed;
+z-index: 1000;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+background-color: #ffffff;
+
+padding: 20px;
+border-radius: 8px;
+width: 80%;
+max-width: 600px;
+box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+color: #333;
+float: right;
+font-size: 28px;
+font-weight: bold;
+cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+color: #007bff;
+text-decoration: none;
+}
+#seatNumber{
+padding: 8px;
+width: 95%;
+}
+#seatCount{
+padding:0.5rem 0.5rem !important;
+outline:none;
+border-radius:5px !important;
+width: 95%;
+}
+#branchSelect{
+padding:0.5rem 0.5rem !important;
+outline:none;
+border-radius:5px !important;
+}
+#fetchSeats{
+display:none !important;
+}
