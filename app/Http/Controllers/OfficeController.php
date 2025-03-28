@@ -5,6 +5,7 @@ use App\Models\Office;
 use App\Models\BranchDetails;
 use Illuminate\Http\Request;
 
+
 class OfficeController extends Controller
 {
     public function create()
@@ -13,10 +14,26 @@ class OfficeController extends Controller
         return view('offices.create', compact('branches'));
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $offices = Office::with('branch')->get();
-        return view('offices.index', compact('offices'));
+        // Get the selected branch ID from the request
+        $branchId = $request->branch_id;
+        
+        // Start with a base query
+        $officesQuery = Office::with('branch')->orderBy('created_at', 'desc');
+        
+        // Apply branch filter if selected
+        if ($branchId) {
+            $officesQuery->where('branch_id', $branchId);
+        }
+        
+        // Execute the query with pagination (10 items per page)
+        $offices = $officesQuery->paginate(10);
+        
+        // Get all branches for the dropdown
+        $branches = BranchDetails::orderBy('branch_name')->get();
+        
+        return view('offices.index', compact('offices', 'branches', 'branchId'));
     }
 
     public function store(Request $request)

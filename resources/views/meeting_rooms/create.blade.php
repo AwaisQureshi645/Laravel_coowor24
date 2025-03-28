@@ -2,8 +2,16 @@
 
 @section('content')
 <div class="container">
-    <h2>Add New Meeting Room</h2>
-
+    <div class="flex justify-between items-center">
+        <div class="button_contoll_width_back">
+            <a href="{{ route('meeting_rooms.index') }}" class="btn btn-secondary">
+                <button>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+            </a>
+        </div>
+        <h2>Add New Meeting Room</h2>
+  
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -37,7 +45,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="{{ route('meeting_rooms.index') }}" class="btn btn-secondary">Cancel</a>
+        <!-- <a href="{{ route('meeting_rooms.index') }}" class="btn btn-secondary">Cancel</a> -->
     </form>
 </div>
 @endsection

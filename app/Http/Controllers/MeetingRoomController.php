@@ -7,11 +7,27 @@ use Illuminate\Http\Request;
 
 class MeetingRoomController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // Fetch meeting rooms ordered by the latest created records
-        $meetingRooms = MeetingRoom::with('branch')->orderBy('created_at', 'desc')->get();
-    return view('meeting_rooms.index', compact('meetingRooms')); }
+        // Get the selected branch ID from the request
+        $branchId = $request->branch_id;
+        
+        // Start with a base query
+        $meetingRoomsQuery = MeetingRoom::with('branch')->orderBy('created_at', 'desc');
+        
+        // Apply branch filter if selected
+        if ($branchId) {
+            $meetingRoomsQuery->where('branch_id', $branchId);
+        }
+        
+        // Execute the query with pagination (10 items per page)
+        $meetingRooms = $meetingRoomsQuery->paginate(10);
+        
+        // Get all branches for the dropdown
+        $branches = Branch::orderBy('branch_name')->get();
+        
+        return view('meeting_rooms.index', compact('meetingRooms', 'branches', 'branchId'));
+    }
 
     public function create()
     {

@@ -16,7 +16,7 @@ class TeamBooking extends Model
         'security_amount',
         'point_of_contact',
         'num_members',
-        'branch_name',
+       'branch_id',
         'reference',
         'contract_copy',
     ];
@@ -24,7 +24,8 @@ class TeamBooking extends Model
     public function branch()
     {
         // 'branch_id' in the team_bookings table references 'id' in the branches table
-        return $this->belongsTo(Branch::class);
+        return $this->belongsTo(BranchDetails::class, 'branch_id', 'branch_id');
+
     }
 
 }

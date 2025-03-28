@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Coworker</title>
-   
-       
+
+
 </head>
 
 <body>
@@ -23,7 +23,7 @@
             </select>
         </form>
 
-        
+
 
     </div>
 
@@ -36,7 +36,7 @@
     <!-- Redirect to Team Form -->
     <div id="teamForm" class="hidden">
 
-       
+
 
     </div>
 
@@ -51,6 +51,7 @@
                 individualForm.classList.remove("hidden");
                 teamForm.classList.add("hidden");
             } else if (coworkerType === "team") {
+                window.location.href = "{{ url('team-bookings/create') }}";
                 individualForm.classList.add("hidden");
                 teamForm.classList.remove("hidden");
             } else {

@@ -2,7 +2,18 @@
 
 @section('content')
 <div class="container">
-    <h2>Add New Branch</h2>
+    <div class="flex justify-between items-center">
+        <div class="button_contoll_width_back">
+            <a href="{{ route('branches.index') }}" class="btn btn-secondary">
+                <button>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+            </a>
+        </div>
+        <h2>Add New Branch</h2>
+
+    </div>
+
 
     <form action="{{ route('branches.store') }}" method="POST">
         @csrf
@@ -27,7 +38,8 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="{{ route('branches.index') }}" class="btn btn-secondary">Cancel</a>
+
+
     </form>
 </div>
 @endsection

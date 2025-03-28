@@ -2,9 +2,24 @@
 
 @section('content')
 <div class="container">
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <h2>Edit Coworker</h2>
 
-    <form action="{{ route('coworkers.update', $coworker->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('coworkers.update', $coworker->coworker_id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -27,7 +42,7 @@
             <label for="branch_id">Branch:</label>
             <select id="branch_id" name="branch_id" class="form-control" required>
                 @foreach($branches as $branch)
-                    <option value="{{ $branch->id }}" {{ $coworker->branch_id == $branch->id ? 'selected' : '' }}>
+                    <option value="{{ $branch->branch_id }}" {{ $coworker->branch_id == $branch->id ? 'selected' : '' }}>
                         {{ $branch->branch_name }}
                     </option>
                 @endforeach
@@ -63,7 +78,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Update</button>
-        <a href="{{ route('addcoworker.display') }}" class="btn btn-secondary">Cancel</a>
+       
     </form>
 </div>
 @endsection

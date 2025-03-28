@@ -31,14 +31,26 @@ class VisitController extends Controller
 
         return redirect()->route('visits.index')->with('success', 'Visitor record added successfully.');
     }
-    public function index()
+    public function index(Request $request)
     {
-        // Use pagination for better performance and UX
-        $visits = Visit::with('branch')
-            ->orderBy('appointment_date', 'desc')
-            ->paginate(10); // Fetch 10 records per page
-    
-        return view('visits.index', compact('visits'));
+        // Get the selected branch ID from the request
+        $branchId = $request->branch_id;
+        
+        // Start with a base query
+        $visitsQuery = Visit::with('branch')->orderBy('appointment_date', 'desc');
+        
+        // Apply branch filter if selected
+        if ($branchId) {
+            $visitsQuery->where('branch_id', $branchId);
+        }
+        
+        // Execute the query with pagination
+        $visits = $visitsQuery->paginate(10);
+        
+        // Get all branches for the dropdown
+        $branches = Branch::orderBy('branch_name')->get();
+        
+        return view('visits.index', compact('visits', 'branches', 'branchId'));
     }
     public function update(Request $request, $id)
     {

@@ -10,7 +10,8 @@ class IndividualCoworker extends Model
     //
 
     use HasFactory;
-
+    protected $table = 'individual_coworkers';
+    protected $primaryKey = 'coworker_id';
     protected $fillable = [
         'name',
         'contact_info',
@@ -25,6 +26,6 @@ class IndividualCoworker extends Model
 
     public function branch()
     {
-        return $this->belongsTo(BranchDetails::class);
+        return $this->belongsTo(BranchDetails::class, 'branch_id', 'branch_id');
     }
 }

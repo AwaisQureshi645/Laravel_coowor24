@@ -11,7 +11,6 @@ class Ticket extends Model
   
 
     use HasFactory;
-
     public $timestamps = false; // Disable automatic timestamps
     public function index()
     {

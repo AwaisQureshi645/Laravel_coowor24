@@ -85,19 +85,18 @@ class SeatController extends Controller
     {
         $validated = $request->validate([
             'seat_id' => 'required|exists:seats,seat_id',
-            'branch_id' => 'required|exists:branch_details,branch_id',
-            'coworker_id' => 'nullable|exists:individual_coworkers,coworker_id',
+            'coworker_id' => 'required|exists:individual_coworkers,coworker_id',
         ]);
     
         $seat = Seat::findOrFail($validated['seat_id']);
         $seat->update([
-            'branch_id' => $validated['branch_id'],
             'coworker_id' => $validated['coworker_id'],
-            'status' => $validated['coworker_id'] ? 'occupied' : 'available',
+            'status' => 'occupied',
         ]);
     
         return response()->json(['success' => true, 'message' => 'Seat updated successfully!']);
     }
+    
     
     /**
      * Fetch all branches.

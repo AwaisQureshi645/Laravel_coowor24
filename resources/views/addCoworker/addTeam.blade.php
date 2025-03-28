@@ -23,12 +23,12 @@
 
             <div class="form-group">
                 <label for="joining_date">Joining Date:</label>
-                <input type="date" id="joining_date" name="joining_date" class="form-control" required>
+                <input type="date" id="joining_date" name="joining_date" class="form-control" required onclick=this.showPicker()>
             </div>
 
             <div class="form-group">
                 <label for="ending_date">Ending Date:</label>
-                <input type="date" id="ending_date" name="ending_date" class="form-control" required>
+                <input type="date" id="ending_date" name="ending_date" class="form-control" required onclick=this.showPicker()>
             </div>
 
             <div class="form-group">
@@ -52,7 +52,7 @@
                     <option value="1">Branch 1</option>
                     <option value="2">Branch 2</option>
                 </select>
-            </div>
+            </div> 
 
             <div class="form-group">
                 <label for="reference">Reference:</label>

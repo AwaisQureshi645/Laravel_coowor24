@@ -7,6 +7,9 @@
     <title>COWORK24 Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.css' rel='stylesheet' />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+    
     <style>
         /* Reset and Base Styles */
         * {
@@ -349,7 +352,7 @@
                         </a>
                         <div class="submenu">
                             <a href="#" onclick="navigateTo('newBranch.php')">Add New Branch</a>
-                            <a href="#" onclick="navigateTo('branch.php')">Branches Data</a>
+                            <a href="/branches" onclick="navigateTo('branch.php')">Branches Data</a>
                         </div>
                     </div>
 
